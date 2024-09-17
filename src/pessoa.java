@@ -5,6 +5,13 @@ public abstract class pessoa {
         protected int cpf;
         protected int idade;
         
+        pessoa (){}
+        public pessoa(String nome, int cpf, int idade) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.idade = idade;
+        }
+
         public String getNome() {
             return nome;
         }
