@@ -1,7 +1,8 @@
+import java.util.Scanner;
 public abstract class pessoa {
-
+    Scanner ler = new Scanner(System.in);
         protected String nome;
-        protected String cpf;
+        protected int cpf;
         protected int idade;
         
         public String getNome() {
@@ -10,10 +11,10 @@ public abstract class pessoa {
         public void setNome(String nome) {
             this.nome = nome;
         }
-        public String getCpf() {
+        public int getCpf() {
             return cpf;
         }
-        public void setCpf(String cpf) {
+        public void setCpf(int cpf) {
             this.cpf = cpf;
         }
         public int getIdade() {
@@ -26,10 +27,17 @@ public abstract class pessoa {
 
 
     public void vericpf(){
-        if (this.cpf > leitor.length()) {
-            System.out.println("O CPF há um limite de 11 caractéres.");
-        } else {
-            System.out.println("O CPF do usuário é: " + this.cpf);
+        System.out.println("Digite seu CPF: ");
+        this.cpf= ler.nextInt();
+        boolean Vf = false;
+        while (Vf == false) {
+            String cf;
+            cf = Integer.toString(this.cpf);
+            if (cf.length() == 11 && cf.matches("//d{11}")) {
+                Vf = true;
+            } else {
+                System.out.println("O CPF do usuário é: " + this.cpf);
+            }
         }
     }
 }
