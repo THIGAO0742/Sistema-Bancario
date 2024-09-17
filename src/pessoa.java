@@ -23,5 +23,13 @@ public abstract class pessoa {
             this.idade = idade;
         }
 
-    } // FIM 
 
+
+    public void vericpf(){
+        if (this.cpf > leitor.length()) {
+            System.out.println("O CPF há um limite de 11 caractéres.");
+        } else {
+            System.out.println("O CPF do usuário é: " + this.cpf);
+        }
+    }
+}
