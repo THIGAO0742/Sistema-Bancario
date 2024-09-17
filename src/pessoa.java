@@ -1,11 +1,12 @@
 import java.util.Scanner;
-public abstract class pessoa {
+public  class pessoa {
     Scanner ler = new Scanner(System.in);
         protected String nome;
-        protected int cpf;
+        protected long cpf;
         protected int idade;
         
         pessoa (){}
+
         public pessoa(String nome, int cpf, int idade) {
         this.nome = nome;
         this.cpf = cpf;
@@ -18,10 +19,10 @@ public abstract class pessoa {
         public void setNome(String nome) {
             this.nome = nome;
         }
-        public int getCpf() {
+        public long getCpf() {
             return cpf;
         }
-        public void setCpf(int cpf) {
+        public void setCpf(long cpf) {
             this.cpf = cpf;
         }
         public int getIdade() {
@@ -38,17 +39,17 @@ public abstract class pessoa {
         this.idade = ler.nextInt();
            
         boolean Vf = false;
-            while (Vf == false) {
-                System.out.println("Digite seu CPF: ");
-                this.cpf= ler.nextInt();
-                String cf;
-                cf = Integer.toString(this.cpf);
-                if (cf.length() == 11 && cf.matches("//d{11}")) {
-                    Vf = true;
-                } else {
-                    System.out.println("CPF INVALIDO, DIGITE NOVAMETE!!");
-                }
+        while (!Vf) {
+            System.out.println("Digite seu CPF (11 dígitos): ");
+            this.cpf = ler.nextLong();  // Alterado para nextLong()
+            String cf = Long.toString(this.cpf);
+
+            if (cf.length() == 11 && cf.matches("\\d{11}")) {
+                Vf = true;
+            } else {
+                System.out.println("CPF INVÁLIDO, DIGITE NOVAMENTE!!");
             }
+        }
     
 
     

@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
 public class teste {
-     public static pessoa p1 = new pessoa();
+    public static Scanner tec = new Scanner(System.in);
+    public static pessoa p1 = new pessoa();
      public static conta c1 = new conta();
+
     public static void opAPP(){
         System.out.println("/////BANCO SENAC/////");
         System.out.println("1 - Criar conta");
@@ -11,7 +13,18 @@ public class teste {
         System.out.print("OPÇÃO: ");
      }
      public static void EntrarConta(){
-
+        boolean Vf = false;
+        while (Vf== false) {
+            int cpf;
+            System.out.print("Digite seu Cpf: ");
+            cpf = tec.nextInt();
+            if(cpf == p1.getCpf()) {
+                Vf = true;
+            }  else{
+                System.out.println("Cpf incorreto, tente novamente");
+            }   
+                
+        }
      }
      public static void opBanco(){
         System.out.println("/////BANCO SENAC/////");
@@ -25,7 +38,6 @@ public class teste {
      }
     
     public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
         int op;
         boolean stop = false;
         conta principa = new conta();

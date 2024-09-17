@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class conta {
+public class conta extends pessoa {
     Scanner tec = new Scanner(System.in);
    private int nConta, nAgencia;
    private double saldo,saque,deposito,Transf;
@@ -54,29 +54,29 @@ public class conta {
 
     //metodo
     public void criarConta(){
-        boolean Vf = false;
-        System.out.print("Digiter seu nome:");
-
-        System.out.print("Digite sua idade:");
-
-        while(Vf == false){
-            String ag;
+        
+        LerDados();
+        boolean Vf1 = false;
+        while(!Vf1){
             System.out.print("Digite o Nº da Agência que deseja: "); //FALTA LIMITE DE CARACTERERS
             this.nAgencia = tec.nextInt();
-            ag = Integer.toString(nAgencia);
+            String ag = Integer.toString(nAgencia);
             if (ag.length() == 5 && ag.matches("\\d{11}")) {
-                Vf = true;
+                Vf1 = true;
             } else {
                 System.out.println("Agencia Invalida, TENTE NOVAMENTE!!");
             }
         }//ehile agencia
-        while(Vf == true){
-            String ag;
-            System.out.print("Digite o Nº da Conta:");
-            this.nConta = tec.nextInt();
-            ag = Integer.toString(nConta);
+        
+        
+        boolean Vf2 = false;
+       while(!Vf2){
+           System.out.print("Digite o Nº da Conta:");
+           this.nConta = tec.nextInt();
+           Integer.toString(nConta);
+           String ag = Integer.toString(nConta);
             if (ag.length() == 8 && ag.matches("\\d{11}")) {
-                Vf = false;
+                Vf2 = true;
             } else {
                 System.out.println("Agencia Invalida, TENTE NOVAMENTE!!");
             }
@@ -84,7 +84,7 @@ public class conta {
         
         System.out.println("CONTA CRIADA COM SUCESSO!!");
     }
-
+     
     public void saldo(){
         System.out.println("SALDO");
         System.out.println("R$"+this.saldo);
