@@ -82,8 +82,8 @@ public class conta {
             } else{
                 System.out.println("Saldo Insuficiente");
             }//if
-       }//deposito
-
+        }//while
+    }//deposito
        public void saque(){
         boolean vF = true;
         System.out.println("SAQUE");
@@ -97,8 +97,8 @@ public class conta {
             } else{
                 System.out.println("Saldo Insuficiente");
             }//if
-       }//Saque
-
+       }//while
+    }//saque
        public void Transf(){
         boolean vF = true;
         System.out.println("Transferencia");
