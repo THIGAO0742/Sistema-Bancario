@@ -5,6 +5,13 @@ public abstract class pessoa {
         protected int cpf;
         protected int idade;
         
+        pessoa (){}
+        public pessoa(String nome, int cpf, int idade) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.idade = idade;
+        }
+
         public String getNome() {
             return nome;
         }
@@ -24,20 +31,26 @@ public abstract class pessoa {
             this.idade = idade;
         }
 
-
-
-    public void vericpf(){
-        System.out.println("Digite seu CPF: ");
-        this.cpf= ler.nextInt();
+    public void LerDados(){
+        System.out.println("Digite Seu Nome: ");
+        this.nome = ler.nextLine();
+        System.out.println("Digite Sua Idade: ");
+        this.idade = ler.nextInt();
+           
         boolean Vf = false;
-        while (Vf == false) {
-            String cf;
-            cf = Integer.toString(this.cpf);
-            if (cf.length() == 11 && cf.matches("//d{11}")) {
-                Vf = true;
-            } else {
-                System.out.println("O CPF do usuário é: " + this.cpf);
+            while (Vf == false) {
+                System.out.println("Digite seu CPF: ");
+                this.cpf= ler.nextInt();
+                String cf;
+                cf = Integer.toString(this.cpf);
+                if (cf.length() == 11 && cf.matches("//d{11}")) {
+                    Vf = true;
+                } else {
+                    System.out.println("CPF INVALIDO, DIGITE NOVAMETE!!");
+                }
             }
-        }
+    
+
+    
     }
 }
