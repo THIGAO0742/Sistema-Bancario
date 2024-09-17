@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class teste {
-     
+     public static pessoa p1 = new pessoa();
+     public static conta c1 = new conta();
     public static void opAPP(){
         System.out.println("/////BANCO SENAC/////");
         System.out.println("1 - Criar conta");
@@ -15,8 +16,11 @@ public class teste {
      public static void opBanco(){
         System.out.println("/////BANCO SENAC/////");
         System.out.println("Usuário: ");
-        System.out.println("2- Entrar na conta");
-        System.out.println("3- Sair do Banco Senac");
+        System.out.println("1- Exebir saldo");
+        System.out.println("2- Depósito");
+        System.out.println("3- Saque");
+        System.out.println("4- Transferencia");
+        System.out.println("5- Sair da conta");
         System.out.print("OPÇÃO: ");
      }
     
@@ -37,16 +41,27 @@ public class teste {
                 EntrarConta();
                 boolean off = false;
                 while (off == false) {
+                    opBanco();
                     op = tec.nextInt();
-                    switch (principa) {
+                    switch (op) {
                         case 1:
-                            
+                            principa.saldo();
                             break;
-                    
+                        case 2:
+                            principa.deposito();
+                            break;
+                        case 3:
+                            principa.saque();
+                            break;
+                        case 4:
+                            principa.Transf();
+                            break;
                         default:
+                            off = true;
+                            System.out.println("SAINDO DA CONTA");
                             break;
                     }
-                }
+                }//WHILE
                 break;
             default:
                 System.out.println("SAINDO DA CONTA");

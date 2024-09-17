@@ -54,14 +54,34 @@ public class conta {
 
     //metodo
     public void criarConta(){
+        boolean Vf = false;
         System.out.print("Digiter seu nome:");
 
         System.out.print("Digite sua idade:");
 
-        System.out.print("Digite o Nº da Agência que deseja: "); //FALTA LIMITE DE CARACTERERS
-        this.nAgencia = tec.nextInt();
-        System.out.print("Digite o Nº da Conta:");
-        this.nConta = tec.nextInt();
+        while(Vf == false){
+            String ag;
+            System.out.print("Digite o Nº da Agência que deseja: "); //FALTA LIMITE DE CARACTERERS
+            this.nAgencia = tec.nextInt();
+            ag = Integer.toString(nAgencia);
+            if (ag.length() == 5 && ag.matches("\\d{11}")) {
+                Vf = true;
+            } else {
+                System.out.println("Agencia Invalida, TENTE NOVAMENTE!!");
+            }
+        }//ehile agencia
+        while(Vf == true){
+            String ag;
+            System.out.print("Digite o Nº da Conta:");
+            this.nConta = tec.nextInt();
+            ag = Integer.toString(nConta);
+            if (ag.length() == 8 && ag.matches("\\d{11}")) {
+                Vf = false;
+            } else {
+                System.out.println("Agencia Invalida, TENTE NOVAMENTE!!");
+            }
+        }///while conta
+        
         System.out.println("CONTA CRIADA COM SUCESSO!!");
     }
 
