@@ -2,13 +2,13 @@ import java.util.Scanner;
 
 public class conta extends pessoa {
     Scanner tec = new Scanner(System.in);
-   private int nConta, nAgencia;
+   private String nConta, nAgencia;
    private double saldo,saque,deposito,Transf;
    
    //construct
    conta(){};
    
-   public conta(Scanner tec, int nConta, int nAgencia, double saldo, double saque, double deposito, double transf) {
+   public conta(Scanner tec, String nConta, String nAgencia, double saldo, double saque, double deposito, double transf) {
    this.tec = tec;
    this.nConta = nConta;
    this.nAgencia = nAgencia;
@@ -23,32 +23,29 @@ public class conta extends pessoa {
 
 
 
-    public Scanner getTec() {
-        return tec;
+
+    public String getnConta() {
+        return this.nConta;
     }
 
-    public int getnConta() {
-        return nConta;
-    }
-
-    public int getnAgencia() {
-        return nAgencia;
+    public String getnAgencia() {
+        return this.nAgencia;
     }
 
     public double getSaldo() {
-        return saldo;
+        return this.saldo;
     }
 
     public double getSaque() {
-        return saque;
+        return this.saque;
     }
 
     public double getDeposito() {
-        return deposito;
+        return this.deposito;
     }
 
     public double getTransf() {
-        return Transf;
+        return this.Transf;
     }
 
 
@@ -59,23 +56,23 @@ public class conta extends pessoa {
         boolean Vf1 = false;
         while(!Vf1){
             System.out.print("Digite o Nº da Agência que deseja: "); //FALTA LIMITE DE CARACTERERS
-            this.nAgencia = tec.nextInt();
-            String ag = Integer.toString(nAgencia);
-            if (ag.length() == 5 && ag.matches("\\d{11}")) {
+            this.nAgencia = tec.next();
+          
+
+            if (nAgencia.length() == 5 && nAgencia.matches("\\d{5}")) {
                 Vf1 = true;
             } else {
                 System.out.println("Agencia Invalida, TENTE NOVAMENTE!!");
             }
+
         }//ehile agencia
         
         
         boolean Vf2 = false;
        while(!Vf2){
            System.out.print("Digite o Nº da Conta:");
-           this.nConta = tec.nextInt();
-           Integer.toString(nConta);
-           String ag = Integer.toString(nConta);
-            if (ag.length() == 8 && ag.matches("\\d{11}")) {
+           this.nConta = tec.next();
+            if (nConta.length() == 8 && nConta.matches("\\d{8}")) {
                 Vf2 = true;
             } else {
                 System.out.println("Agencia Invalida, TENTE NOVAMENTE!!");
@@ -95,8 +92,8 @@ public class conta extends pessoa {
        while (vF == true) {
            System.out.println("Qual o valor que deseja depositar");
             this.deposito=tec.nextDouble();
-            if(this.saldo>=this.deposito){
-                this.saldo-= this.deposito;
+            if(this.deposito>0){
+                this.saldo+= this.deposito;
                 System.out.println("Deposito realizado!!");
                 vF = false;
             } else{

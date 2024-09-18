@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class teste {
     public static Scanner tec = new Scanner(System.in);
-    public static pessoa p1 = new pessoa();
      public static conta c1 = new conta();
 
     public static void opAPP(){
@@ -14,11 +13,11 @@ public class teste {
      }
      public static void EntrarConta(){
         boolean Vf = false;
-        while (Vf== false) {
-            int cpf;
+        while (!Vf) {
+            String cpf;
             System.out.print("Digite seu Cpf: ");
-            cpf = tec.nextInt();
-            if(cpf == p1.getCpf()) {
+            cpf = tec.next();
+            if(cpf.equals(c1.getCpf())) {
                 Vf = true;
             }  else{
                 System.out.println("Cpf incorreto, tente novamente");
@@ -40,14 +39,12 @@ public class teste {
     public static void main(String[] args) {
         int op;
         boolean stop = false;
-        conta principa = new conta();
-
         while(stop == false){
             opAPP();
             op=tec.nextInt();
         switch (op) {
             case 1:
-                principa.criarConta();
+                c1.criarConta();
                 break;
             case 2:
                 EntrarConta();
@@ -57,16 +54,16 @@ public class teste {
                     op = tec.nextInt();
                     switch (op) {
                         case 1:
-                            principa.saldo();
+                            c1.saldo();
                             break;
                         case 2:
-                            principa.deposito();
+                            c1.deposito();
                             break;
                         case 3:
-                            principa.saque();
+                            c1.saque();
                             break;
                         case 4:
-                            principa.Transf();
+                            c1.Transf();
                             break;
                         default:
                             off = true;
