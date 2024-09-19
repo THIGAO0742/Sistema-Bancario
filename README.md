@@ -35,7 +35,7 @@ No terminal, digite os comandos a seguir:
 
 ```bash
 # Clonar esse repositório
-$ git clone https://github.com/analuisadev/E-Commerce.git
+$ git clone https://github.com/THIGAO0742/Sistema-Bancario.git
 
 # Vá para o ropositório
 $ cd lista1
